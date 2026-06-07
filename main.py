@@ -1,5 +1,5 @@
 import argparse
-from analyser.parser import parse_line
+from analyser.ingestion import load_log_file
 from analyser.detection.engine import run_all_detectors
 from analyser.reporter import generate_report
 
@@ -17,8 +17,7 @@ def main():
 
     # Load and parse the log file
     try:
-        with open(args.log, "r") as f:
-            entries = [parse_line(line) for line in f.readlines()]
+        entries = load_log_file(args.log)
     except FileNotFoundError:
         print(f"Error: Log file '{args.log}' not found.")
         return
