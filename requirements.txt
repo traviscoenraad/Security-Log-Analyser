@@ -1,0 +1,2 @@
+# This project uses Python standard library only
+# Python 3.10+ required (for list[LogEntry] type hint syntax)
